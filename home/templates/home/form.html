@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Favicons -->
+{% load static %}
+<link href="{% static 'img/favicon.png'%}" rel="icon">
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+<!-- Bootstrap CSS File -->
+<link href="{% static "lib/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href="{% static "lib/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+<link href="{% static "lib/animate/animate.min.css"  %}" rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link href="{% static "css/style.css" %}" rel="stylesheet">
+
+    <title>Carbon Footprint Calculator</title>
+  </head>
+
+  <body style="background-color: #D1D1DE">
+        
+                <div class="container">
+            
+            
+                  <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+            
+                      <li class="menu-active"><a href="{% url 'home:index' %}" style="color: black;">Home</a></li>
+                     
+                    </ul>
+                  </nav><!-- #nav-menu-container -->
+                </div>
+              
+                </nav>
+<br>
+
+<div class="container" align="center" style="margin-top: 2px;" >
+<form method="POST"   action="/form/" class="register" >
+  {% csrf_token %}
+  <div class="form-group row" align=left>
+    <label for="input" class="col-sm-4 col-form-label">No of Persons in Family</label>
+    <div class="col-sm-8">
+      <input type="text" name="fam" class="form-control" id="input" name="fam" placeholder="Persons" required>
+    </div>
+  </div>
+    <div class="form-group row" align=left>
+    <label for="input" class="col-sm-4 col-form-label">Electricity Used</label>
+    <div class="col-sm-8">
+      <input type="text" name="electricity" class="form-control" id="input" name="electricity" placeholder="Electricity in Kwh per month" required>
+    </div>
+  </div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Plastic Disposed</label>
+    <div class="col-sm-8">
+      <input type="text" name="plastic" class="form-control" id="input" name="plastic" placeholder="Plastic used in kg per month" required>
+    </div>
+  </div>  
+  <div class="form-group row"   align=left>
+    <label for="input" class="col-sm-4 col-form-label">No of 2-wheelers</label>
+    <div class="col-sm-8">
+      <input type="text" name="two_wheeler_no" class="form-control" id="input" name="two_wheeler_no" placeholder="Two Wheelers" required>
+    </div>
+  </div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Avg mileage of 2-wheelers</label>
+    <div class="col-sm-8">
+      <input type="text" name="two_wheeler_mlg" class="form-control" id="input" name="two_wheeler_mlg" placeholder="Mileage in kmpl" required>
+    </div>
+</div>
+    <div class="form-group row"  align=left>
+        <label for="input" class="col-sm-4 col-form-label">Distance travelled by 2-wheelers in a month</label>
+        <div class="col-sm-8">
+          <input type="text" name="dist_2" class="form-control" id="input" name="dist_2" placeholder="Distance in kms travelled in a month" required>
+    </div>
+  </div>
+  <div class="form-group row"   align=left>
+    <label for="input" class="col-sm-4 col-form-label">No of 4-wheelers</label>
+    <div class="col-sm-8">
+      <input type="text" name="four_wheeler_no" class="form-control" id="input" name="four_wheeler_no" placeholder="Four Wheelers" required>
+    </div>
+  </div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Avg mileage of 4-wheelers</label>
+    <div class="col-sm-8">
+      <input type="text" name="four_wheeler_mlg" class="form-control" id="input" name="four_wheeler_mlg" placeholder="Mileage in kmpl" required>
+    </div>
+  </div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Distance travelled by 4-wheelers in a month</label>
+    <div class="col-sm-8">
+      <input type="text" name="dist_4" class="form-control" id="input" name="dist_4" placeholder="Distance in kms travelled in a month" required>
+</div>
+</div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Distance Travelled by Train Monthly</label>
+    <div class="col-sm-8">
+      <input type="text" name="dist_train" class="form-control" id="input" name="dist_train" placeholder="Distance in kms monthly" required>
+    </div>
+  </div>
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Distance travelled by Bus Daily</label>
+    <div class="col-sm-8">
+      <input type="text" name="dist_bus" class="form-control" id="input" name="dist_bus" placeholder="Distance in kms daily" required>
+    </div>
+  </div> 
+  <div class="form-group row"  align=left>
+    <label for="input" class="col-sm-4 col-form-label">Trees planted in a year</label>
+    <div class="col-sm-8">
+      <input type="text" name="trees" class="form-control" id="input" name="trees" placeholder="No of trees" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-info" style="width: 20%; margin: 2px;">Submit</button>
+</form>
+
+
+
+
+
+</div>  
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<style>
+form
+{
+    background-color:white;
+    padding: 2%;
+    margin: 2%;
+}
+
+body {
+    background-color:bisque;
+}
+</style>
